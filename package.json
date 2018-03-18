@@ -1,0 +1,12 @@
+{
+    "name": "kebabcase.io",
+    "version": "0.0.1",
+    "scripts": {
+        "build": "gulp",
+        "run": "gulp serve"
+    },
+    "dependencies": {
+        "gulp": "^3.9.1",
+        "gulp-util": "^3.0.8"
+    }
+}
