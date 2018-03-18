@@ -3,10 +3,22 @@
     "version": "0.0.1",
     "scripts": {
         "build": "gulp",
-        "run": "gulp serve"
+        "release": "gulp release",
+        "start": "gulp serve"
     },
-    "dependencies": {
-        "gulp": "^3.9.1",
-        "gulp-util": "^3.0.8"
+    "dependencies": {},
+    "devDependencies": {
+        "@babel/cli": "^7.0.0-beta.42",
+        "@babel/core": "^7.0.0-beta.42",
+        "@babel/preset-env": "^7.0.0-beta.42",
+        "gulp": "gulpjs/gulp#4.0",
+        "gulp-babel": "^8.0.0-beta.2",
+        "gulp-concat": "^2.6.1",
+        "gulp-connect": "^5.5.0",
+        "gulp-minify": "^2.1.0",
+        "gulp-sourcemaps": "^2.6.4",
+        "gulp-uglify": "^3.0.0",
+        "gulp-util": "^3.0.8",
+        "lodash": "^4.17.5"
     }
 }
