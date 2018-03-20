@@ -1,5 +1,7 @@
+// TODO: include Typescript into build
+
 // TODO: Refactor out gulp commands into separate repo
-// and release it 
+// and release it
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
