@@ -1,86 +1,73 @@
-import {Point, ITile} from '../tile/tile.d';
-import {GridDimension} from './grid.d';
+import {Point} from '../tile/tile.d';
+import {GridDimension, GridCache} from './grid.d';
 import {Path} from '../path/path.d';
-import {DIRECTION} from '../direction/direction';
+// import {DIRECTION} from '../direction/direction';
 import {Tile} from '../tile//tile';
-import {isOnPath} from '../path/utility';
-import {isSamePoint, getNextPoint} from '../utility/utility';
+// import {isOnPath} from '../path/utility';
+import {generateChildNodes} from './grid-generator';
+import {getNextPositions, isOutOfBound} from './grid-utility';
 
 export class Grid {
-  private grid: ITile[][];
+  private root: Tile;
 
   constructor(private dimension: GridDimension, private path: Path) {
+    // TODO: randomize root point
+    // this.getRandomRoot(dimension); ?
+    const rootPoint = {row: 0, col: 0};
+    this.root = new Tile(rootPoint, null);
     this.init(dimension, path);
   }
 
-  private init(dimension: GridDimension, path: Path) {
-    this.grid = [];
-    for (let i = 0, iLen = dimension.width; i < iLen; i++) {
-      this.grid.push([]);
-    }
+  private init(dimension, path) {
+    const gridCache = generateChildNodes(this.root, dimension, {}, path);
 
-    const rootPoint = {row: 0, col: 0};
-    this.grid[0][0] = new Tile(rootPoint, this.generateRandomAvailbeOutputs(rootPoint, path));
+    // Validate that all tiles in the grid are added to the tree.
+    if (Object.keys(gridCache).length !== dimension.getSize()) {
+      console.log(`Grid Cache: ${gridCache}`);
+      console.log(`Dimension: ${dimension}`);
 
-    this.populateGrid(dimension, path);
-  }
-
-  private populateGrid(dimension: GridDimension, path: Path) {
-    for (let row = 0, rowLen = dimension.width; row < rowLen; row++) {
-      for (let col = 1, colLen = dimension.height; col < colLen; col++) {
-        const currentPosition = {row, col};
-        const currentPath = this.getCurrentPath(currentPosition);
-        const availableOutputs = this.generateRandomAvailbeOutputs(currentPosition, currentPath);
-
-        this.grid[row][col] = new Tile(currentPosition, availableOutputs);
-      }
+      throw new Error('Not every tile has been added to the tree!');
     }
   }
 
-  private getCurrentPath(to: Point): Path {
-    const path = [];
-    const directions = Object.keys(DIRECTION);
+  public stringify(): string {
+    // const possibleNexts = getNextPositions(this.root.getPosition(), this.dimension);
+    let str = '';
 
-    for (let i = 0, iLen = directions.length; i < iLen; i++) {
-      const direction = DIRECTION[directions[i]];
-      const nextPoint = getNextPoint(to, direction);
-
-      if (!this.isOutOfBound(nextPoint)) {
-        const nextTile = this.grid[nextPoint.row][nextPoint.col];
-        if ((!nextTile && this.randomChance()) || (nextTile && nextTile.canComeFromHere(to))) {
-          path.push(nextPoint);
-        }
-      }
+    for (let i = 0, iLen = possibleNexts.length; i < iLen; i++) {
+      str += this.stringifyChildren(possibleNexts[i], str) + '\n';
     }
 
-    const pathObj = {path, isOnPath: () => true};
-    pathObj.isOnPath = isOnPath.bind(pathObj);
-    return pathObj;
+    return str;
   }
 
-  private generateRandomAvailbeOutputs(from: Point, path: Path): Point[] {
-    const availableOutputs = [];
-    const directions = Object.keys(DIRECTION);
-
-    for (let i = 0, iLen = directions.length; i < iLen; i++) {
-      const direction = DIRECTION[directions[i]];
-      const possiblePoint = getNextPoint(from, direction);
-
-      if (path.isOnPath(possiblePoint) || this.randomChance()) {
-        availableOutputs.push(possiblePoint);
-      }
+  private stringifyChildren(current: Tile, ancesters: string): string {
+    if (current.getNext()) {
+      return ancesters + this.stringifyChildren(current.getNext(), ancesters);
     }
 
-    return availableOutputs;
+    return current.getId();
   }
 
-  private isOutOfBound(point: Point): boolean {
-    return point.row < 0 || point.row >= this.dimension.width - 1 ||
-      point.col < 0 || point.col >= this.dimension.height - 1;
-  }
+  // TODO: move to path-generator.ts
+  // private generatePath(to: Point): Path {
+  //   const path = [];
+  //   const directions = Object.keys(DIRECTION);
 
-  // TODO: make a random number generator and return true for 30% to start
-  private randomChance(): boolean {
-    return true;
-  }
+  //   for (let i = 0, iLen = directions.length; i < iLen; i++) {
+  //     const direction = DIRECTION[directions[i]];
+  //     const nextPoint = getNextPoint(to, direction);
+
+  //     if (!isOutOfBound(nextPoint)) {
+  //       const nextTile = this.grid[nextPoint.row][nextPoint.col];
+  //       if ((!nextTile && this.randomChance()) || (nextTile && nextTile.canComeFromHere(to))) {
+  //         path.push(nextPoint);
+  //       }
+  //     }
+  //   }
+
+  //   const pathObj = {path, isOnPath: () => true};
+  //   pathObj.isOnPath = isOnPath.bind(pathObj);
+  //   return pathObj;
+  // }
 }
