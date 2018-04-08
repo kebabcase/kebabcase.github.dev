@@ -1,14 +1,15 @@
-import {Point} from './tile.d';
+import {Direction} from '../direction/direction.d';
+import {Point, NextPoints} from './tile.d';
 import {isSamePoint} from '../utility/utility';
 
 export class Tile {
   private id: string;
-  private next: Tile = null;
+  private next: NextPoints;
   private previous: Tile;
 
   constructor(private position: Point, parent: Tile) {
     this.id = Tile.generateId(position);
-    this.next = null;
+    this.next = {};
     this.previous = parent;
   }
 
@@ -20,16 +21,16 @@ export class Tile {
     return this.position;
   }
 
-  // TODO: next should be an array (multiple nexts)
-  // - Grid generator has to account for this as well
-  // - Tile should have getAvailableNexts()
-  // - and getNext(direction)
-  public getNext(): Tile {
+  public getNexts(): NextPoints {
     return this.next;
   }
 
-  public setNext(next: Tile) {
-    this.next = next;
+  public getNext(direction: Direction): Tile {
+    return this.next[direction];
+  }
+
+  public setNext(next: Tile, direction: Direction) {
+    this.next[direction] = next;
   }
 
   public getPrevious(): Tile {

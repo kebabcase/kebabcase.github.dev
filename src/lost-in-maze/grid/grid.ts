@@ -1,7 +1,7 @@
 import {Point} from '../tile/tile.d';
 import {GridDimension, GridCache} from './grid.d';
 import {Path} from '../path/path.d';
-// import {DIRECTION} from '../direction/direction';
+import {Direction} from '../direction/direction.d';
 import {Tile} from '../tile//tile';
 // import {isOnPath} from '../path/utility';
 import {generateChildNodes} from './grid-generator';
@@ -31,22 +31,32 @@ export class Grid {
   }
 
   public stringify(): string {
-    // const possibleNexts = getNextPositions(this.root.getPosition(), this.dimension);
+    const nextPoints = this.root.getNexts();
+    const directions = Object.keys(nextPoints);
     let str = '';
 
-    for (let i = 0, iLen = possibleNexts.length; i < iLen; i++) {
-      str += this.stringifyChildren(possibleNexts[i], str) + '\n';
+    for (let i = 0, iLen = directions.length; i < iLen; i++) {
+      const direction = directions[i] as Direction;
+      str += this.stringifyChildren(this.root.getNext(direction), str) + '\n';
     }
 
     return str;
   }
 
   private stringifyChildren(current: Tile, ancesters: string): string {
-    if (current.getNext()) {
-      return ancesters + this.stringifyChildren(current.getNext(), ancesters);
+    const nextPoints = current.getNexts();
+    const directions = Object.keys(nextPoints);
+
+    if (directions.length) {
+      for (let i = 0, iLen = directions.length; i < iLen; i++) {
+        const direction = directions[i] as Direction;
+        ancesters += this.stringifyChildren(current.getNext(direction), ancesters) + '\n';
+      }
+
+      return ancesters;
     }
 
-    return current.getId();
+    return ` -> ${current.getId()} `;
   }
 
   // TODO: move to path-generator.ts

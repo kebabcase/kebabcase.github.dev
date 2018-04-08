@@ -1,6 +1,8 @@
+import {Direction} from '../direction/direction.d';
 import {Point} from '../tile/tile.d';
 import {GridDimension, GridCache} from './grid.d';
 import {Path} from '../path/path.d';
+import {DIRECTION} from '../direction/direction';
 import {Tile} from '../tile/tile';
 import {getNextPositions, isOutOfBound} from './grid-utility';
 
@@ -13,9 +15,11 @@ import {getNextPositions, isOutOfBound} from './grid-utility';
 export function generateChildNodes(currentNode: Tile, dimension: GridDimension, cache: GridCache, path: Path) {
   // Check all four sides in a random order.
   const nextPositions = getNextPositions(currentNode.getPosition(), dimension);
+  const directions = Object.keys(nextPositions);
 
-  while (nextPositions.length) {
-    const possibleNextPosition = nextPositions.shift();
+  while (directions.length) {
+    const nextPossibleDirection = directions.shift();
+    const possibleNextPosition = nextPositions[nextPossibleDirection];
 
     if (isOutOfBound(dimension, possibleNextPosition)) {
       break;
@@ -33,7 +37,7 @@ export function generateChildNodes(currentNode: Tile, dimension: GridDimension, 
 
     // Add next position and recursive call for the child
     const nextTile = new Tile(possibleNextPosition, currentNode);
-    currentNode.setNext(nextTile);
+    currentNode.setNext(nextTile, nextPossibleDirection as Direction);
 
     // Update cache
     cache[nextTile.getId()] = true;
