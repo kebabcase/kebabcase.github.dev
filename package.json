@@ -2,7 +2,8 @@
   "name": "kebabcase.io",
   "version": "0.0.1",
   "scripts": {
-    "build": "gulp",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "release": "gulp release",
     "start": "gulp serve"
   },
@@ -11,6 +12,7 @@
     "@babel/cli": "^7.0.0-beta.42",
     "@babel/core": "^7.0.0-beta.42",
     "@babel/preset-env": "^7.0.0-beta.42",
+    "css-loader": "^0.28.11",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-babel": "^8.0.0-beta.2",
     "gulp-concat": "^2.6.1",
@@ -20,6 +22,15 @@
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "jshint": "^2.9.5",
-    "lodash": "^4.17.5"
+    "lodash": "^4.17.5",
+    "ts-loader": "^4.2.0",
+    "typescript": "^2.8.3",
+    "vue": "^2.5.16",
+    "vue-class-component": "^6.2.0",
+    "vue-loader": "^15.0.3",
+    "vue-property-decorator": "^6.0.0",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15"
   }
 }
