@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="container">
     <div class="greeting">Hello {{name}}{{exclamationMarks}}</div>
-    <button @click="decrement">-</button>
-    <button @click="increment">+</button>
+    <el-button @click="decrement">-</el-button>
+    <el-button @click="increment">+</el-button>
   </div>
 </template>
 
