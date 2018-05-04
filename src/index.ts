@@ -1,17 +1,11 @@
 import Vue from 'vue';
-import imageFilter from './components/image-filter/image-filter.vue';
+import {Button, Input} from 'element-ui';
+import app from './components/main/app.vue';
+
+Vue.use(Button);
+Vue.use(Input);
 
 const vm = new Vue({
     el: '#app',
-    template: `
-    <div>
-        Name: <input v-model="name" type="text">
-        <image-filter :name="name" :initialEnthusiasm="5"/>
-    </div>`,
-    data: {
-        name: 'World',
-    },
-    components: {
-      imageFilter,
-    },
+    render: h => h(app),
 });

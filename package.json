@@ -3,23 +3,36 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "rimraf dist && webpack -p --progress --hide-modules",
+    "dev": "webpack-dev-server --inline --hot --env.dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "element-ui": "^2.3.7",
     "vue": "^2.5.16",
     "vue-class-component": "^6.2.0",
     "vue-property-decorator": "^6.0.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.6.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-component": "^1.1.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-vue-app": "^1.2.0",
     "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
     "lodash": "^4.17.5",
+    "postcss-loader": "^2.1.4",
+    "style-loader": "^0.21.0",
     "ts-loader": "^2.0.3",
     "tslint": "^5.10.0",
     "typescript": "^2.8.3",
+    "url-loader": "^0.5.8",
     "vue-loader": "^12.0.0",
     "vue-template-compiler": "^2.5.16",
     "vue-ts-loader": "^0.0.3",
-    "webpack": "^2.4.1"
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.2"
   }
 }

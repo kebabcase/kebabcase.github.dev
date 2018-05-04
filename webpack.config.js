@@ -1,68 +1,94 @@
 var path = require('path');
 var webpack = require('webpack');
+var url = require('url');
 
-module.exports = {
-  entry: './src/index.ts',
-  output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'build.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-            // the "scss" and "sass" values for the lang attribute to the right configs here.
-            // other preprocessors should work out of the box, no loader config like this necessary.
-            'scss': 'vue-style-loader!css-loader!sass-loader',
-            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+module.exports = function(options = {}) {
+  return {
+    entry: './src/index.ts',
+    output: {
+      path: path.resolve(__dirname, './dist'),
+      publicPath: '/dist/',
+      filename: 'build.js',
+    },
+    module: {
+      rules: [
+        {
+          test: /\.vue$/,
+          use: ['vue-loader'],
+          // loader: 'vue-loader',
+          // options: {
+          //   loaders: {
+          //     ts: 'babel-loader!ts-loader',
+          //   },
+          // },
+        },
+        {
+          test: /\.tsx?$/,
+          loader: [
+            'babel-loader',
+            {
+              loader: 'ts-loader',
+              options: {
+                appendTsSuffixTo: [/\.vue$/],
+              },
+            }
+          ],
+          // loader: 'ts-loader',
+          exclude: /node_modules/,
+          // options: {
+          //   appendTsSuffixTo: [/\.vue$/],
+          // },
+        },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+          query: {
+            presets: ['es2015'],
           },
-          // other vue-loader options go here
         },
-      },
-      {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
-        options: {
-          appendTsSuffixTo: [/\.vue$/],
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader', 'postcss-loader']
         },
-      },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]?[hash]',
+        {
+          test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
+          use: [{
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+            },
+          }],
         },
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.ts', '.js', '.vue', '.json'],
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js',
+      ],
     },
-  },
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true,
-    overlay: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8000',
-        changeOrigin: true,
-        secure: false,
+    resolve: {
+      extensions: ['.ts', '.js', '.vue', '.json'],
+      alias: {
+        'vue$': 'vue/dist/vue.esm.js',
       },
     },
-  },
-  performance: {
-    hints: false,
-  },
-  devtool: '#eval-source-map',
+    devServer: {
+      host: 'localhost',
+      port: 8080,
+      proxy: {
+        '/api/': {
+          target: 'http://localhost:8080',
+          changeOrigin: true,
+          pathRewrite: {
+            '^/api': '',
+          },
+        },
+      },
+      historyApiFallback: {
+        index: url.parse('/dist/').pathname,
+      },
+    },
+    performance: {
+      hints: false,
+    },
+    devtool: options.dev ? '#eval-source-map' : '#source-map',
+  };
 };
 
 if (process.env.NODE_ENV === 'production') {
