@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import imageFilter from './components/image-filter/image-filter.vue';
 
-const v = new Vue({
+const vm = new Vue({
     el: '#app',
     template: `
     <div>
