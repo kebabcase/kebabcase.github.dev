@@ -1,21 +1,31 @@
 <template>
   <div id="app">
-      Name: <el-input v-model="name" type="text"/>
-      <image-filter :name="name" :initialEnthusiasm="5"/>
+      <image-filter/>
   </div>
 </template>
 
 <script lang="ts">
+import store from './app-store';
 import imageFilter from '../image-filter/image-filter.vue';
 
 export default {
-  data() {
-    return {
-      name: 'Jae',
-    };
-  },
+  store,
   components: {
     imageFilter,
   },
 };
 </script>
+
+<style>
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+</style>
