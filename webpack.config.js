@@ -15,12 +15,6 @@ module.exports = function(options = {}) {
         {
           test: /\.vue$/,
           use: ['vue-loader'],
-          // loader: 'vue-loader',
-          // options: {
-          //   loaders: {
-          //     ts: 'babel-loader!ts-loader',
-          //   },
-          // },
         },
         {
           test: /\.tsx?$/,
@@ -33,11 +27,7 @@ module.exports = function(options = {}) {
               },
             }
           ],
-          // loader: 'ts-loader',
           exclude: /node_modules/,
-          // options: {
-          //   appendTsSuffixTo: [/\.vue$/],
-          // },
         },
         {
           test: /\.js$/,

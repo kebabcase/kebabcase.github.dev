@@ -17,7 +17,10 @@
       false
     ],
     "arrow-parens": false,
-    "object-literal-sort-keys": false
+    "object-literal-sort-keys": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "no-console": false
   },
   "rulesDirectory": []
 }
