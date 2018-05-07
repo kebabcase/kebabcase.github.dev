@@ -16,8 +16,14 @@ const store: StoreOptions<ImageFilterState> = {
         }
       }
     },
+    selectImage(state: ImageFilterState, image: File) {
+      state.selectedImage = image;
+    },
   },
   getters: {
+    selectedImage(state: ImageFilterState): File | undefined {
+      return state.selectedImage;
+    },
     availableImages(state: ImageFilterState): File[] {
       return state.images;
     },

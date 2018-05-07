@@ -28,9 +28,9 @@
 
 <script lang="ts">
 import * as _ from 'lodash';
-import {Vue, Component, Prop} from 'vue-property-decorator';
+import {Vue, Component} from 'vue-property-decorator';
 import {Mutation, namespace} from 'vuex-class';
-import {isImage} from '../../util/util';
+import {previewImage, isImage} from '../../util/util';
 
 interface DragDropEvent extends Event {
   dataTransfer: DataTransfer;
@@ -43,8 +43,6 @@ export default class ImageViewer extends Vue {
   public $refs: {
     fileform: HTMLFormElement,
   };
-
-  @ModuleMutation('addImage') private addImage: (file: File) => void;
 
   private dragEvents = Object.freeze([
     'drag',
@@ -61,7 +59,16 @@ export default class ImageViewer extends Vue {
   private fileList = [];
   // private maxSize = 101027;
 
+  @ModuleMutation('selectImage') private selectImage: (image: File) => void;
+  @ModuleMutation('addImage') private addImage: (file: File) => void;
+
   private mounted() {
+    this.$store.subscribe((mutation) => {
+      if (mutation.type === 'imageFilter/selectImage') {
+        previewImage(mutation.payload).then(image => this.currentImage = image);
+      }
+    });
+
     if (this.dragAndDropAvailable) {
       _.each(this.dragEvents, (event: string) => {
         this.$refs.fileform.addEventListener(event, ((e: DragDropEvent) => {
@@ -72,29 +79,13 @@ export default class ImageViewer extends Vue {
 
       this.$refs.fileform.addEventListener('drop', (e: DragDropEvent) => {
         const droppedFiles = e.dataTransfer.files;
-        _.each(droppedFiles, (file, index) => {
-          if (index === 0) {
-            this.previewImage(file);
-          }
 
-          this.addImage(file);
-        });
+        if (!this.currentImage) {
+          this.selectImage(droppedFiles[0]);
+        }
+
+        _.each(droppedFiles, (file) => this.addImage(file));
       });
-    }
-  }
-
-  private previewImage(file: File) {
-    if (isImage(file)) {
-      // https://developer.mozilla.org/en-US/docs/Web/API/FileReader
-      const fileReader = new FileReader();
-      fileReader.onload = () => {
-        this.currentImage = fileReader.result;
-      };
-
-      // fileReader.onerror = (error) => {
-      //   console.log(error);
-      // };
-      fileReader.readAsDataURL(file);
     }
   }
 
