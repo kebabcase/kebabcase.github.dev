@@ -19,7 +19,8 @@
           <img
             class="image-viewer_img"
             v-else
-            :src="currentImage"/>
+            :src="currentImage"
+            :style="{filter: imageFilter}"/>
         </form>
       </el-card>
     </el-col>
@@ -29,14 +30,16 @@
 <script lang="ts">
 import * as _ from 'lodash';
 import {Vue, Component} from 'vue-property-decorator';
-import {Mutation, namespace} from 'vuex-class';
+import {Mutation, Getter, namespace} from 'vuex-class';
+import {Filters} from '../filters/filters';
 import {previewImage, isImage} from '../../util/util';
 
 interface DragDropEvent extends Event {
   dataTransfer: DataTransfer;
 }
 
-const ModuleMutation = namespace('imageFilter', Mutation);
+const ImageFilterMutation = namespace('imageFilter', Mutation);
+const ImageFilterGetter = namespace('imageFilter', Getter);
 
 @Component
 export default class ImageViewer extends Vue {
@@ -55,20 +58,18 @@ export default class ImageViewer extends Vue {
   ]);
   private dragAndDropAvailable: boolean = this.isDragAndDropAvailable();
 
+  private currentImageName: string = '';
   private currentImage: string = '';
-  private fileList = [];
+
+  private imageFilter: string = '';
+
   // private maxSize = 101027;
 
-  @ModuleMutation('selectImage') private selectImage: (image: File) => void;
-  @ModuleMutation('addImage') private addImage: (file: File) => void;
+  @ImageFilterMutation('selectImage') private selectImage: (image: File) => void;
+  @ImageFilterMutation('addImage') private addImage: (file: File) => void;
+  @ImageFilterGetter('filters') private filters: {[key: string]: Filters};
 
   private mounted() {
-    this.$store.subscribe((mutation) => {
-      if (mutation.type === 'imageFilter/selectImage') {
-        previewImage(mutation.payload).then(image => this.currentImage = image);
-      }
-    });
-
     if (this.dragAndDropAvailable) {
       _.each(this.dragEvents, (event: string) => {
         this.$refs.fileform.addEventListener(event, ((e: DragDropEvent) => {
@@ -87,6 +88,28 @@ export default class ImageViewer extends Vue {
         _.each(droppedFiles, (file) => this.addImage(file));
       });
     }
+
+    this.$store.subscribe((mutation) => {
+      if (mutation.type === 'imageFilter/selectImage') {
+        this.displayImage(mutation.payload);
+        this.applyFilters();
+      }
+
+      if (mutation.type === 'imageFilter/updateFilter') {
+        this.applyFilters();
+      }
+    });
+  }
+
+  private displayImage(file: File) {
+    this.currentImageName = file.name;
+    this.currentImage = '';
+    previewImage(file).then(image => this.currentImage = image);
+  }
+
+  private applyFilters() {
+    const currentFilter = this.filters[this.currentImageName];
+    this.imageFilter = currentFilter ? currentFilter.stringify() : '';
   }
 
   private isDragAndDropAvailable(): boolean {
