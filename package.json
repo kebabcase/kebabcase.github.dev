@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && webpack -p --progress --hide-modules",
-    "dev": "webpack-dev-server --inline --hot --env.dev",
+    "build": "rimraf dist && gulp && webpack -p --progress --hide-modules",
+    "dev": "yarn build && webpack-dev-server --inline --hot --env.dev --content-base dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "babel-preset-vue-app": "^1.2.0",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
+    "gulp": "^3.9.1",
     "node-sass": "^4.5.2",
     "postcss-loader": "^2.1.4",
     "sass-loader": "^6.0.3",
