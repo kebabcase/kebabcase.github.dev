@@ -11,6 +11,8 @@ import {
     Row,
     Col,
     Card,
+    Tabs,
+    TabPane,
     Slider,
 } from 'element-ui';
 import app from './components/main/app.vue';
@@ -35,6 +37,8 @@ Vue.use(Col);
 Vue.use(Card);
 
 // Slider Editor
+Vue.use(Tabs);
+Vue.use(TabPane);
 Vue.use(Slider);
 
 const vm = new Vue({

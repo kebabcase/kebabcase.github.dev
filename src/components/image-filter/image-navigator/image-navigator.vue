@@ -20,13 +20,13 @@ import {Vue, Component} from 'vue-property-decorator';
 import {Mutation, Getter, namespace} from 'vuex-class';
 import {previewImage} from '../util/util';
 
-const ModuleMutation = namespace('imageFilter', Mutation);
-const ModuleGetter = namespace('imageFilter', Getter);
+const ImageFilterMutation = namespace('imageFilter', Mutation);
+const ImageFilterGetter = namespace('imageFilter', Getter);
 
 @Component
 export default class ImageNavigator extends Vue {
-  @ModuleMutation('selectImage') private selectImage: (image: File) => void;
-  @ModuleGetter('availableImages') private availableImages: File[];
+  @ImageFilterMutation('selectImage') private selectImage: (image: File) => void;
+  @ImageFilterGetter('availableImages') private availableImages: File[];
 
   private thumbnails: {[key: string]: string} = {};
 
