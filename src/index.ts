@@ -3,6 +3,7 @@ import {
     Button,
     Input,
     Container,
+    Header,
     Aside,
     Main,
     Footer,
@@ -22,6 +23,7 @@ Vue.use(Input);
 
 // Image Filter
 Vue.use(Container);
+Vue.use(Header);
 Vue.use(Aside);
 Vue.use(Main);
 Vue.use(Footer);
