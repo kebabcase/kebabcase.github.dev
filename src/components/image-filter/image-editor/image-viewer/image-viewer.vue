@@ -13,14 +13,18 @@
             v-if="!currentImage">
             <i class="el-icon-upload"></i>
             <div class="el-upload__text">
-              Drop file here or <em>click to upload</em>
+              Drop file(s) here or <em>click to upload</em>
             </div>
           </div>
           <img
-            class="image-viewer_img"
+            class="image-viewer__img"
             v-else
             :src="currentImage"
             :style="{filter: imageFilter}"/>
+          <!-- <canvas
+            class="image-viewer__canvas"
+            v-draw-image="{currentImage, imageFilter}"
+            v-apply-filter="{currentImage, imageFilter}"/> -->
         </form>
       </el-card>
     </el-col>
@@ -41,6 +45,43 @@ interface DragDropEvent extends Event {
 const ImageFilterMutation = namespace('imageFilter', Mutation);
 const ImageFilterGetter = namespace('imageFilter', Getter);
 
+// TODO: utilize custom directive when changing <img> to <canvas>
+// for better filter application.
+
+// @Component({
+//   directives: {
+//     drawImage(canvas: any, binding: any) {
+//       const image = new Image();
+//       image.onload = () => {
+//         canvas.width = image.naturalWidth;
+//         canvas.height = image.naturalHeight;
+
+//         const context = canvas.getContext('2d');
+//         context!.clearRect(0, 0, canvas.width, canvas.height);
+
+//         const filter = binding.value.imageFilter || 'none';
+//         context!.filter = filter;
+//         context!.drawImage(image, 0, 0);
+//       };
+//       image.setAttribute('src', binding.value.currentImage);
+//     },
+//     applyFilter(canvas: any, binding: any) {
+//       const image = new Image();
+//       image.onload = () => {
+//         canvas.width = image.naturalWidth;
+//         canvas.height = image.naturalHeight;
+
+//         const context = canvas.getContext('2d');
+//         context!.clearRect(0, 0, canvas.width, canvas.height);
+
+//         const filter = binding.value.imageFilter || 'none';
+//         context!.filter = filter;
+//         context!.drawImage(image, 0, 0);
+//       };
+//       image.setAttribute('src', binding.value.currentImage);
+//     }
+//   }
+// })
 @Component
 export default class ImageViewer extends Vue {
   public $refs: {
@@ -62,8 +103,6 @@ export default class ImageViewer extends Vue {
   private currentImage: string = '';
 
   private imageFilter: string = '';
-
-  // private maxSize = 101027;
 
   @ImageFilterMutation('selectImage') private selectImage: (image: File) => void;
   @ImageFilterMutation('addImage') private addImage: (file: File) => void;
@@ -148,7 +187,10 @@ export default class ImageViewer extends Vue {
       height: 100%;
     }
 
-    .image-viewer_img {
+    // .image-viewer__canvas {
+    //   height: 100%;
+    // }
+    .image-viewer__img {
       height: 100%;
     }
   }
