@@ -1,6 +1,6 @@
 {
   "name": "kebabcase.io",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && gulp && webpack -p --progress --hide-modules",
