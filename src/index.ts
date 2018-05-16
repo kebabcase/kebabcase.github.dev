@@ -1,4 +1,6 @@
 import Vue from 'vue';
+import VueRouter from 'vue-router';
+import router from './router';
 import {
     Button,
     Input,
@@ -8,7 +10,10 @@ import {
     Main,
     Footer,
     Menu,
+    Submenu,
     MenuItem,
+    Carousel,
+    CarouselItem,
     Row,
     Col,
     Card,
@@ -16,34 +21,29 @@ import {
     TabPane,
     Slider,
 } from 'element-ui';
-import app from './components/main/app.vue';
 
+Vue.use(VueRouter);
+
+// Element UI
 Vue.use(Button);
 Vue.use(Input);
-
-// Image Filter
 Vue.use(Container);
 Vue.use(Header);
 Vue.use(Aside);
 Vue.use(Main);
 Vue.use(Footer);
-
-// Image Editor
-// Image Navigator
 Vue.use(Menu);
+Vue.use(Submenu);
 Vue.use(MenuItem);
-
-// Image Viewer
+Vue.use(Carousel);
+Vue.use(CarouselItem);
 Vue.use(Row);
 Vue.use(Col);
 Vue.use(Card);
-
-// Slider Editor
 Vue.use(Tabs);
 Vue.use(TabPane);
 Vue.use(Slider);
 
 const vm = new Vue({
-    el: '#app',
-    render: h => h(app),
-});
+    router,
+}).$mount('#app');
