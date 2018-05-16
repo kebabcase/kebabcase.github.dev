@@ -1,11 +1,12 @@
 import * as _ from 'lodash';
 import {Vue} from 'vue-property-decorator';
-import {StoreOptions} from 'vuex';
+import {Module} from 'vuex';
+import {AppState} from '../../store.d';
 import {ImageFilterState} from './image-filter.store.d';
 import {Filters} from '../image-filter/image-editor/filters/filters';
 import {isImage} from './util/util';
 
-const store: StoreOptions<ImageFilterState> = {
+export default {
   state: {
     isNavigatorOpen: true,
     images: [],
@@ -49,6 +50,5 @@ const store: StoreOptions<ImageFilterState> = {
     },
   },
   strict: true,
-};
-
-export default store;
+  namespaced: true,
+} as Module<ImageFilterState, AppState>;
