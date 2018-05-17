@@ -1,6 +1,7 @@
 import VueRouter, {RouteConfig} from 'vue-router';
 import App from './app.vue';
 import Main from './components/main/main.vue';
+import KApp from './components/projects/k-app/k-app.vue';
 import ImageFilter from './components/image-filter/image-filter.vue';
 
 const routes: RouteConfig[] = [
@@ -21,33 +22,37 @@ const routes: RouteConfig[] = [
           template: '<div>About Page</div>',
         },
       },
-      // TODO: break up `projects/` routes into their own routes
+    ],
+  },
+  {
+    path: '/projects',
+    name: 'projects',
+    component: App,
+    children: [
       {
-        path: 'projects/image-filter',
+        path: 'image-filter',
         name: 'projects/imageFilter',
         component: ImageFilter,
       },
       {
-        path: 'projects/tile-tap',
+        path: 'tile-tap',
         name: 'projects/tileTap',
         component: {
           template: '<div>Tile Tap</div>',
         },
       },
       {
-        path: 'projects/k-app',
+        path: 'k-app',
         name: 'projects/kApp',
-        component: {
-          template: '<div>Kapp</div>',
-        },
+        component: KApp,
       },
       {
-        path: 'projects/ace-it',
+        path: 'ace-it',
         name: 'projects/aceIt',
         component: {
           template: '<div>ACEit!</div>',
         },
-      },
+      }
     ],
   },
 ];
