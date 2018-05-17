@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "commonmark": "^0.28.1",
     "element-ui": "^2.3.7",
     "es6-promise": "^4.2.4",
     "lodash": "^4.17.10",
@@ -16,6 +17,7 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@types/commonmark": "^0.27.0",
     "@types/lodash": "^4.14.108",
     "autoprefixer": "^6.6.0",
     "babel-core": "^6.26.3",

@@ -1,8 +1,8 @@
 import {Module} from 'vuex';
 import {AppState} from '../../store.d';
 import {MainState} from './main.store.d';
-import {Projects} from './projects/projects.d';
-import {PROJECTS} from './projects/projects.const';
+import {Projects} from '../projects/projects.d';
+import {PROJECTS} from '../projects/projects.const';
 
 export default {
   state: {
