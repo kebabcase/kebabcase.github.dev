@@ -1,5 +1,5 @@
-import {Projects} from '../projects/projects.d';
+import {ProjectsMetadata} from '../../metadata/projects-metadata.d';
 
 export interface MainState {
-  projects: Projects;
+  projects: ProjectsMetadata;
 }

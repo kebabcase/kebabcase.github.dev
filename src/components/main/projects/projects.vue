@@ -12,7 +12,7 @@
       </h3>
       <iframe
         class="main-projects-preview__iframe"
-        :src="'/#' + project.path">
+        :src="'/#/projects/' + project.id">
       </iframe>
     </el-carousel-item>
   </el-carousel>
@@ -21,13 +21,13 @@
 <script lang="ts">
 import {Vue, Component} from 'vue-property-decorator';
 import {Getter, namespace} from 'vuex-class';
-import {Project, Projects} from '../../projects/projects.d';
+import {ProjectsMetadata} from '../../../metadata/projects-metadata.d';
 
 const MainGetter = namespace('main', Getter);
 
 @Component
 export default class MainProjects extends Vue {
-  @MainGetter('availableProjects') private availableProjects: Projects;
+  @MainGetter('availableProjects') private availableProjects: ProjectsMetadata;
 }
 </script>
 
