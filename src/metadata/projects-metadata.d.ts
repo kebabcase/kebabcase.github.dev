@@ -7,13 +7,13 @@ export interface Assets {
   [key: string]: Asset;
 }
 
-export interface Project {
+export interface ProjectMetadata {
   id: string;
   label: string;
   name: string;
   path: string;
-  assets?: Assets;
+  assets: Assets;
   [key: string]: any;
 }
 
-export type Projects = Project[];
+export type ProjectsMetadata = ProjectMetadata[];

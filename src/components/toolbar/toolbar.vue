@@ -15,7 +15,7 @@
       <el-menu-item
         v-for="project in availableProjects"
         :key="project.id"
-        :index="project.name">
+        :index="project.id">
         {{project.label}}
       </el-menu-item>
     </el-submenu>
@@ -23,23 +23,25 @@
 </template>
 
 <script lang="ts">
+import * as _ from 'lodash';
 import {Vue, Component, Prop} from 'vue-property-decorator';
 import {Getter, namespace} from 'vuex-class';
-import {Projects} from '../projects/projects.d';
+import {ProjectMetadata, ProjectsMetadata} from '../../metadata/projects-metadata.d';
 
 const MainGetter = namespace('main', Getter);
 
 @Component
 export default class MainToolbar extends Vue {
-  @MainGetter('availableProjects') private availableProjects: Projects;
+  @MainGetter('availableProjects') private availableProjects: ProjectsMetadata;
 
   @Prop({default: 'main'}) private mode: string;
 
-  private onSelect(selectedIndex: string) {
+  private onSelect(selectedIndex: string, indexPaths: string) {
     if (selectedIndex === 'back') {
       this.goBack();
     } else {
-      this.$router.push({name: selectedIndex});
+      const project = _.find(this.availableProjects, ['id', selectedIndex]) as ProjectMetadata;
+      this.$router.push({name: indexPaths[0], params: {id: selectedIndex}});
     }
   }
 
