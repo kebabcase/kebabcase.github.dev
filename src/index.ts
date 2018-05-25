@@ -22,6 +22,7 @@ import {
     Tabs,
     TabPane,
     Slider,
+    Message,
 } from 'element-ui';
 
 Vue.use(VueRouter);
@@ -47,6 +48,8 @@ Vue.use(Card);
 Vue.use(Tabs);
 Vue.use(TabPane);
 Vue.use(Slider);
+
+Vue.prototype.$message = Message;
 
 const vm = new Vue({
     router,

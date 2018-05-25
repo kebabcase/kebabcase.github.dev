@@ -22,6 +22,13 @@ import mainProjects from './projects/projects.vue';
   },
 })
 export default class Main extends Vue {
+  private mounted() {
+    this.$message({
+      message: 'Website under construction. More content will be added soon :)',
+      type: 'warning',
+      duration: 5000,
+    });
+  }
 }
 </script>
 

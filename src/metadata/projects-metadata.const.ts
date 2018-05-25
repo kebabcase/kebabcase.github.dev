@@ -1,18 +1,18 @@
 import {ProjectsMetadata} from './projects-metadata.d';
 
 export const PROJECTS_METADATA: ProjectsMetadata = [
-  {
-    id: 'imageFilter',
-    label: 'Image Filter',
-    name: 'projects/imageFilter',
-    path: 'projects/image-filter',
-    assets: {
-      featureImage: {
-        // TODO: add feature image to image-filter and modify path below
-        path: './static/k-app-feature-image.png',
-      },
-    },
-  },
+  // {
+  //   id: 'imageFilter',
+  //   label: 'Image Filter',
+  //   name: 'projects/imageFilter',
+  //   path: 'projects/image-filter',
+  //   assets: {
+  //     featureImage: {
+  //       // TODO: add feature image to image-filter and modify path below
+  //       path: './static/k-app-feature-image.png',
+  //     },
+  //   },
+  // },
   {
     id: 'tileTap',
     label: 'TileTap',

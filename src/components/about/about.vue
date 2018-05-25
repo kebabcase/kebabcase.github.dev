@@ -185,6 +185,14 @@ export default class About extends Vue {
   private filterBy = '';
   private filters = ['all', 'tech', 'finance', 'education', 'math', 'health'];
 
+  private mounted() {
+    this.$message({
+      message: 'Website under construction. More content will be added soon :)',
+      type: 'warning',
+      duration: 5000,
+    });
+  }
+
   private applyFilter(filterBy: string) {
     if (filterBy === 'all') {
       this.filterBy = '';
