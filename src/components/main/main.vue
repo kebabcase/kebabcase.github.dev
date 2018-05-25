@@ -35,12 +35,14 @@ export default class Main extends Vue {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #0b0a08 url('../static/background-image.jpg') no-repeat center;
+    background: #fff url('../static/background-image.jpg') no-repeat center;
+    background-size: cover;
     z-index: -1;
   }
 
   .main__row {
-    margin-bottom: 500px;
+    // TODO: add margin bottom 500px when more content is added
+    margin: 40px 0 0;
   }
 }
 </style>

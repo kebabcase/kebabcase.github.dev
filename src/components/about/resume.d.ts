@@ -1,3 +1,5 @@
+export type ResumeTopic = 'tech' | 'finance' | 'education' | 'math' | 'health' | 'misc';
+
 export interface ResumeContent {
   id: string;
   title?: string;
@@ -13,6 +15,7 @@ export interface ResumeItem {
   location: string;
   time: string;
   duration: string;
+  topic: ResumeTopic[];
   content: ResumeContent[];
 }
 
