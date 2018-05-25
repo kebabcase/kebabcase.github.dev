@@ -14,6 +14,8 @@ import {
     MenuItem,
     Carousel,
     CarouselItem,
+    Collapse,
+    CollapseItem,
     Row,
     Col,
     Card,
@@ -37,6 +39,8 @@ Vue.use(Submenu);
 Vue.use(MenuItem);
 Vue.use(Carousel);
 Vue.use(CarouselItem);
+Vue.use(Collapse);
+Vue.use(CollapseItem);
 Vue.use(Row);
 Vue.use(Col);
 Vue.use(Card);

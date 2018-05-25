@@ -36,12 +36,18 @@ export default class MainToolbar extends Vue {
 
   @Prop({default: 'main'}) private mode: string;
 
-  private onSelect(selectedIndex: string, indexPaths: string) {
-    if (selectedIndex === 'back') {
+  private onSelect(selectedRoute: string, routePaths: string) {
+    if (selectedRoute === 'back') {
       this.goBack();
     } else {
-      const project = _.find(this.availableProjects, ['id', selectedIndex]) as ProjectMetadata;
-      this.$router.push({name: indexPaths[0], params: {id: selectedIndex}});
+      const route = routePaths[0];
+
+      if (route === 'about') {
+        this.$router.push({name: selectedRoute});
+      } else if (route === 'projects') {
+        const project = _.find(this.availableProjects, ['id', selectedRoute]) as ProjectMetadata;
+        this.$router.push({name: routePaths[0], params: {id: selectedRoute}});
+      }
     }
   }
 

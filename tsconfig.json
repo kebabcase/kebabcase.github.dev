@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "./built/",
+        "outDir": "built/",
         "sourceMap": true,
         "strict": true,
         "strictPropertyInitialization": false,
@@ -15,11 +15,13 @@
             "es2016",
             "dom"
         ],
-        "types": ["lodash"],
         "typeRoots": ["node_modules/@types"]
     },
+    "files": [
+        "src/require-shims.d.ts"
+    ],
     "include": [
-        "./src/**/*"
+        "src/**/*"
     ],
     "exclude": [
         "node_modules",

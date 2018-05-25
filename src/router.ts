@@ -1,6 +1,7 @@
 import VueRouter, {RouteConfig} from 'vue-router';
 import App from './app.vue';
 import Main from './components/main/main.vue';
+import About from './components/about/about.vue';
 import ProjectDocumentations from './components/project-documentations/project-documentations.vue';
 import ImageFilter from './components/image-filter/image-filter.vue';
 
@@ -14,12 +15,16 @@ const routes: RouteConfig[] = [
         name: 'main',
         component: Main,
       },
+    ],
+  },
+  {
+    path: '/about',
+    component: App,
+    children: [
       {
-        path: 'about',
+        path: '',
         name: 'about',
-        component: {
-          template: '<div>About Page</div>',
-        },
+        component: About,
       },
     ],
   },
