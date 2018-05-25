@@ -37,37 +37,16 @@ const routes: RouteConfig[] = [
         name: 'projects',
         component: ProjectDocumentations,
       },
+    ],
+  },
+  {
+    path: '/demo',
+    component: App,
+    children: [
       {
-        path: 'demo',
-        name: 'projects/demo',
-        children: [
-          {
-            path: 'image-filter',
-            name: 'projects/imageFilter',
-            component: ImageFilter,
-          },
-          {
-            path: 'tile-tap',
-            name: 'projects/tileTap',
-            component: {
-              template: '<div>Tile Tap</div>',
-            },
-          },
-          {
-            path: 'k-app',
-            name: 'projects/kApp',
-            component: {
-              template: '<div>Kapp</div>',
-            },
-          },
-          {
-            path: 'ace-it',
-            name: 'projects/aceIt',
-            component: {
-              template: '<div>ACEit!</div>',
-            },
-          },
-        ],
+        path: 'image-filter',
+        name: 'projects/imageFilter',
+        component: ImageFilter,
       },
     ],
   },
