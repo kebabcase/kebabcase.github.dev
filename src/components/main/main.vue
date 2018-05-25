@@ -35,7 +35,7 @@ export default class Main extends Vue {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #0b0a08 url('./static/background-image.jpg') no-repeat center;
+    background: #0b0a08 url('../static/background-image.jpg') no-repeat center;
     z-index: -1;
   }
 
