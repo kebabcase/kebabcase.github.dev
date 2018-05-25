@@ -14,6 +14,7 @@ export default [
         location: 'New York, NY',
         time: 'Jul 2015 - Present',
         duration: '2 yrs 11 mos',
+        topic: ['tech', 'finance'],
         content: [
           {
             id: 'currently',
@@ -23,8 +24,10 @@ export default [
                 id: '0',
                 title: 'Wealth SBU - Portfolio Guide',
                 body: [
-                  `Lead engineer of Portfolio Guide`,
-                  `DIY-style report creating app with drag-and-drop any tiles to generate report custom to each clients' needs`,
+                  `Lead engineer of Portfolio Guide (PG)`,
+                  `DIY-style report creating app with drag-and-drop of any tiles to generate custom reports to each clients' need`,
+                  `Built mid-layer resource manager to ease the burden of maintenance for static resources required by the app`,
+                  `Built external modules for backend services that PG depends on which are now maintained by backend teams`,
                 ],
               },
             ],
@@ -48,7 +51,8 @@ export default [
                 title: 'Core Products - RT Apps',
                 body: [
                   `Build frontend core product applications with various and latest technologies available in the industry`,
-                  `Lead engineer of an utility to create and modify a watchlist easily, as well as an app which let's users to quickly view the global trend in a dynamic grid for a common stock using RT subscription`,
+                  `Lead engineer of an utility to create and modify a watchlist easily`,
+                  `Lead engineer of an app which lets users to quickly view the global trend in a dynamic grid for a common stock using RT subscription`,
                 ],
               },
             ],
@@ -63,6 +67,7 @@ export default [
         location: 'Kalamazoo, MI',
         time: 'Sep 2014 - Jun 2015',
         duration: '10 mos',
+        topic: ['tech', 'education'],
         content: [
           {
             id: '0',
@@ -82,6 +87,7 @@ export default [
         location: 'Kalamazoo, MI',
         time: 'Sep 2013 - Jun 2015',
         duration: '1 yr 10 mos',
+        topic: ['tech', 'education'],
         content: [
           {
             id: '0',
@@ -99,6 +105,7 @@ export default [
         location: 'Detroit, MI',
         time: 'Aug 2012',
         duration: '1 mo',
+        topic: ['health'],
         content: [
           {
             id: '0',
@@ -122,6 +129,7 @@ export default [
         location: 'Kalamazoo, MI',
         time: 'Sep 2011 - Jun 2015',
         duration: '3 yrs 10 mos',
+        topic: ['tech', 'math', 'education'],
         content: [
           {
             id: '0',
@@ -179,6 +187,7 @@ export default [
         location: 'Kansas City, MO',
         time: 'Mar 2015',
         duration: '1 mo',
+        topic: ['tech', 'education'],
         content: [
           {
             id: '0',
@@ -196,6 +205,7 @@ export default [
         location: 'Ann Arbor, MI',
         time: 'Jun 2010 - Feb 2011',
         duration: '9 mos',
+        topic: ['health'],
         content: [
           {
             id: '0',
@@ -214,6 +224,7 @@ export default [
       {
         id: 'language',
         label: 'Languages',
+        topic: ['tech'],
         content: [
           {
             id: 'proficient',
@@ -290,6 +301,7 @@ export default [
       {
         id: 'others',
         label: 'Others',
+        topic: ['misc'],
         content: [
           {
             id: 'proficient',
