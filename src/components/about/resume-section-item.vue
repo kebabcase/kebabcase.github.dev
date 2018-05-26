@@ -25,18 +25,15 @@
   </div>
 </template>
 
-
 <script lang="ts">
 import {Vue, Component, Prop} from 'vue-property-decorator';
 import {ResumeContent} from './resume.d';
 
-@Component
+@Component({
+  name: 'resumeSectionItem',
+})
 export default class ResumeSectionItem extends Vue {
   @Prop() private content: ResumeContent[];
-
-  private beforeCreate() {
-    this.$options.components!.resumeSectionItem = require('./resume-section-item.vue');
-  }
 }
 </script>
 
