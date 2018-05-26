@@ -35,7 +35,7 @@ export default class ResumeSectionItem extends Vue {
   @Prop() private content: ResumeContent[];
 
   private beforeCreate() {
-    this.$options.components!.TreeFolderContents = require('./resume-section-item.vue');
+    this.$options.components!.resumeSectionItem = require('./resume-section-item.vue');
   }
 }
 </script>
