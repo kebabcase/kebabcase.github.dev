@@ -5,7 +5,7 @@ Created by [Jae Hyun Choe](https://github.com/andrew00917), [Kevin Joh](https://
 
 Please be advised we do not own any part of the placeholder information present in this app and few images used for customization of the theme in this app, which are under [Kalamazoo College Policy](https://reason.kzoo.edu/is/policies/).
 
-___
+------
 
 ![mobile screenshot login](https://cloud.githubusercontent.com/assets/8836645/7637563/d587ec66-fa3c-11e4-8059-eff79691adfc.png)
 ![mobile screenshot main](https://cloud.githubusercontent.com/assets/8836645/7637565/d5894110-fa3c-11e4-8d68-831a08d93426.png)
@@ -14,7 +14,7 @@ ___
 ![mobile screenshot sports](https://cloud.githubusercontent.com/assets/8836645/7637562/d5874f5e-fa3c-11e4-9fb9-d9fde5bcd34c.png)
 ![mobile screenshot events](https://cloud.githubusercontent.com/assets/8836645/7637567/d5913852-fa3c-11e4-8948-95f9571f8216.png)
 
-___
+------
 
 ### Motivation
 
@@ -29,16 +29,14 @@ This project was created with the intent to be used by Kalamazoo College as an o
   + Although user login is supported, you will not be able to log in as a user without first connecting the project to a database or creating hardcoded users.
   + We have provided the "Guest Mode" login for visiting parents and students, and it serves perfectly for demo purpose.
 
-___
+------
 
 * This app was created to improve the daily lives of the users who are on the campus of Kalamazoo College. A few of its functions in this demo state are as followed:
   + Academic calendar for 2014-2017 academic years
   + Dining hours and its availability
   + Upcoming campus events and selected event to be imported into user's device calendar
 
-To install the demo version, click [here](http://www.techhab.com/download/collegeapp/collegeapp-demo-release.apk).
-
-___
+------
 
 The project is protected under *Creative Commons (CC) License*. More detailed parts are described below:
 
@@ -51,7 +49,7 @@ The project is protected under *Creative Commons (CC) License*. More detailed pa
 * *No Derivative Works*
   + The modified work cannot be distributed, otherwise one can copy and distribute the licensed work. This license prohibits one from creating work based on the original.
 
-___
+------
 
 #### [Contact](http://www.techhab.com/meet-the-team/)
 `;

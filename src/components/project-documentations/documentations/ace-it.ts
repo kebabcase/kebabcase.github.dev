@@ -1,25 +1,23 @@
 export default `
 # ACEit!
 
-## An Android App to Facilitate Children in Learning English
+An Android App to Facilitate Children in Learning English
 
-Created By: Jae Hyun Choe
+This project was done as in partial fulfillment of the requirements for the degree of Bachelor of Arts at Kalamazoo College.
+ACEit! is under the [copyright policy of Kalamazoo College](https://reason.kzoo.edu/facultygrants/assets/Intellectual_Property_Policy_July_2003.pdf)
 
 * SIP Advisor: Dr. Pamela Cutter
 * Department of Computer Science, Kalamazoo College
 * Special Thanks To: Mrs. Melanie Baker and the Hough Foundation
 
-This project was done as in partial fulfillment of the requirements for the degree of Bachelor of Arts at Kalamazoo College.
-ACEit! is under the [copyright policy of Kalamazoo College](https://reason.kzoo.edu/facultygrants/assets/Intellectual_Property_Policy_July_2003.pdf)
+------
 
-___
+[Google PlayStore Listing](https://play.google.com/store/apps/details?id=com.jhchoe.aceit)
 
 ![screenshots four stages](https://cloud.githubusercontent.com/assets/8836645/7611428/83ca5926-f952-11e4-8041-67324c1cca05.png)
 ![qr code](https://cloud.githubusercontent.com/assets/8836645/7611432/89f8d390-f952-11e4-9e6f-871fe4fb43b7.png)
 
-[Google Play Store Listing](https://play.google.com/store/apps/details?id=com.jhchoe.aceit)
-
-___
+------
 
 ### Introduction
 
@@ -75,17 +73,13 @@ ___
 
 ### References
 
- * Blackwell, R., & Laman, S. (2013). Strategies to Teach Sight Words in an Elementary Classroom. International Journal of
- Education, 5(4), 37-47.
- * Ehri, L.C. (1995). Phases of development in learning to 	read words by sight. Journal of Research in Reading, 	18(2),
- 116-188.
+ * Blackwell, R., & Laman, S. (2013). Strategies to Teach Sight Words in an Elementary Classroom. International Journal of Education, 5(4), 37-47.
+ * Ehri, L.C. (1995). Phases of development in learning to 	read words by sight. Journal of Research in Reading, 	18(2), 116-188.
  * Ehri, L.C. (2005). Learning to read words: Theory, findings, and issues. Scientific Studies of Reading, 	9(2), 167-188.
- * Gaskin, I.W., Ehri, L.C., Cress, C., O'Hara, C., & Donnelly, K. (1997). Procedures for word learning: Making discoveries
- about words. The Reading 	Teacher, 50(4), 312-327.
- * Westling, David L., and Fox, Lise. “Teaching Appropriate Academic Skills.” Teaching Students with Severe Disabilities. 2nd
- ed. Upper Saddle River: Merrill, 2000. 388. Print.
+ * Gaskin, I.W., Ehri, L.C., Cress, C., O'Hara, C., & Donnelly, K. (1997). Procedures for word learning: Making discoveries about words. The Reading 	Teacher, 50(4), 312-327.
+ * Westling, David L., and Fox, Lise. “Teaching Appropriate Academic Skills.” Teaching Students with Severe Disabilities. 2nd ed. Upper Saddle River: Merrill, 2000. 388. Print.
 
-___
+------
 
 The project is protected under *Creative Commons (CC) License*. More detailed parts are described below:
 
