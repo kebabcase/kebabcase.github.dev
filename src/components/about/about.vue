@@ -102,7 +102,7 @@
                   <span class="section-item-label">
                     {{item.label}}
                   </span>
-                  <span class="resume-section-item-at">
+                  <span class="hidden-sm-and-down resume-section-item-at">
                     <a :href="item.link">{{item.at}}</a>
                   </span>
                 </template>

@@ -24,6 +24,7 @@ import {
     Slider,
     Message,
 } from 'element-ui';
+import 'element-ui/lib/theme-chalk/display.css';
 
 Vue.use(VueRouter);
 
