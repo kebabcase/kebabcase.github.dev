@@ -4,10 +4,13 @@
 
     <div class="about-content">
       <div class="background-image"></div>
-      <el-row>
+      <el-row
+        type="flex"
+        justify="center">
         <el-col
-          :offset="6"
-          :span="12">
+          :sm="24"
+          :md="18"
+          :lg="12">
           <el-card class="about-content__card">
             <div class="portrait">
               <el-row class="portrait-placeholder-top">
@@ -102,10 +105,10 @@
                   <span class="resume-section-item-at">
                     <a :href="item.link">{{item.at}}</a>
                   </span>
-                  <span class="resume-section-item-time">
-                    {{item.time}} <sub>{{item.duration}}</sub>
-                  </span>
                 </template>
+                <span class="resume-section-item-time">
+                  {{item.time}} <sub>{{item.duration}}</sub>
+                </span>
                 <resume-section-item :content="item.content"/>
               </el-collapse-item>
             </el-collapse>
@@ -242,7 +245,7 @@ export default class About extends Vue {
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 1000px;
       background: #0b0a08 url('./static/background-image.jpg') no-repeat center;
       z-index: -1;
     }

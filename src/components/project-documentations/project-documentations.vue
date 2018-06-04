@@ -9,10 +9,13 @@
           :src="featureImage"/>
       </el-col>
       </el-row>
-      <el-row>
+      <el-row
+        type="flex"
+        justify="center">
         <el-col
-          :offset="6"
-          :span="12">
+          :sm="24"
+          :md="18"
+          :lg="12">
           <el-card
             class="projects-documentation__card"
             v-html="compiledMarkdown">
