@@ -33,8 +33,6 @@ export default class MainProjects extends Vue {
 
 <style lang="scss" scoped>
 .main-projects__carousel {
-  background-color: rgba(255, 255, 255, 0.3);
-
   .main-projects-label__h3 {
     position: absolute;
     width: 100%;
