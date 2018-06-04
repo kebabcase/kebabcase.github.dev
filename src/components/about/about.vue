@@ -28,7 +28,7 @@
                   </div>
                 </div>
               </el-row>
-              <el-row>
+              <el-row @dblclick.native="toggleLike">
                 <el-col
                   class="portrait-placeholder-left"
                   :span="4"/>
