@@ -41,8 +41,7 @@ export default class ResumeSectionItem extends Vue {
 .resume-section-item-container {
   .item-body {
     .item-body-title {
-      font-size: 14px;
-      font-weight: bold;
+      font-weight: 600;
       line-height: 30px;
     }
 

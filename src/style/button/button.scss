@@ -1,0 +1,8 @@
+%borderless-button {
+  border: 0;
+
+  &:hover, &:focus {
+    color: #606266;
+    background-color: #fff;
+  }
+}
