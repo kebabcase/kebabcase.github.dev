@@ -7,13 +7,13 @@ export default [
     label: 'Experience',
     content: [
       {
-        id: 'software engineer factset',
+        id: 'software-engineer-factset',
         label: 'Software Engineer',
         at: 'FactSet Research Systems Inc.',
         link: 'https://factset.com/',
         location: 'New York, NY',
         time: 'Jul 2015 - Present',
-        duration: '2 yrs 11 mos',
+        duration: '3 yrs',
         topic: ['tech', 'finance'],
         content: [
           {
@@ -60,7 +60,7 @@ export default [
         ],
       },
       {
-        id: 'dsa kalamazoo',
+        id: 'dsa-kalamazoo',
         label: 'Departmental Student Advisor (DSA)',
         at: 'Kalamazoo College',
         link: 'http://www.kzoo.edu/',
@@ -98,7 +98,7 @@ export default [
         ],
       },
       {
-        id: 'shadow health system',
+        id: 'shadow-health-system',
         label: 'Student Volunteer/Shadower',
         at: 'St. John Providence Health System',
         link: 'https://healthcare.ascension.org/Locations/Michigan/Detroit-Saint-John-Hospital',
@@ -122,7 +122,7 @@ export default [
     label: 'Education',
     content: [
       {
-        id: 'ba kalamazoo',
+        id: 'ba-kalamazoo',
         label: 'Bachelor of Arts',
         at: 'Kalamazoo College',
         link: 'http://www.kzoo.edu/',
@@ -176,11 +176,11 @@ export default [
     ],
   },
   {
-    id: 'volunteer experience',
+    id: 'volunteer-experience',
     label: 'Volunteer Experience',
     content: [
       {
-        id: 'student volunteer sigcse',
+        id: 'student-volunteer-sigcse',
         label: 'Student Volunteer',
         at: 'ACM SIGCSE',
         link: 'https://sigcse.org/sigcse/',
@@ -198,7 +198,7 @@ export default [
         ],
       },
       {
-        id: 'library cart uofm',
+        id: 'library-cart-uofm',
         label: 'Library Cart',
         at: 'University of Michigan Health System',
         link: 'https://www.uofmhealth.org/',
@@ -222,8 +222,8 @@ export default [
     label: 'Skill',
     content: [
       {
-        id: 'language',
-        label: 'Languages',
+        id: 'programing-languages',
+        label: 'Programming Languages',
         topic: ['tech'],
         content: [
           {
@@ -252,6 +252,9 @@ export default [
               {
                 id: '3',
                 title: 'Markdown',
+                body: [
+                  `GitHub flavored, CommonMark`,
+                ],
               },
             ],
           },
@@ -261,37 +264,51 @@ export default [
             content: [
               {
                 id: '0',
+                title: 'Database',
+                body: [
+                  `Redis, Swift Object Store, MongoDB`,
+                ],
+              },
+              {
+                id: '1',
+                title: 'Build',
+                body: [
+                  `Jenkins, FactSet.io (Heroku)`,
+                ],
+              },
+              {
+                id: '2',
                 title: 'Java',
                 body: [
                   `Android API`,
                 ],
               },
               {
-                id: '1',
+                id: '3',
                 title: 'Matlab',
               },
               {
-                id: '2',
+                id: '4',
                 title: 'LaTex',
               },
               {
-                id: '3',
+                id: '5',
                 title: 'XML',
               },
               {
-                id: '4',
+                id: '6',
                 title: 'C',
               },
               {
-                id: '5',
+                id: '7',
                 title: 'MySQL',
               },
               {
-                id: '6',
+                id: '8',
                 title: 'R',
               },
               {
-                id: '7',
+                id: '9',
                 title: 'PHP',
               },
             ],
